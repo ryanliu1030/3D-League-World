@@ -1,12 +1,15 @@
 import { useRef } from 'react';
+import { RigidBody } from '@react-three/rapier';
 
 function Cube(props) {
-  const mesh = useRef();
+  const ref = useRef();
   return (
-    <mesh {...props} ref={mesh}>
-      <boxGeometry args={[0.1, 0.1, 0.1]} />
-      <meshStandardMaterial color={'#ffffff'} />
-    </mesh>
+    <RigidBody {...props} type="fixed" colliders="cuboid" ref={ref}>
+      <mesh>
+        <boxGeometry args={[0.1, 0.1, 0.1]} />
+        <meshStandardMaterial color={'#ffffff'} />
+      </mesh>
+    </RigidBody>
   );
 }
 
