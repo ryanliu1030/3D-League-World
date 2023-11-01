@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 import { Physics } from '@react-three/rapier';
 import Floor from './components/Floor';
 import Cube from './components/Cube';
-import Nunu from './components/Nunu';
+import Nunubot from './components/Nunubot';
 import './styles.css';
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           { name: 'backward', keys: ['ArrowDown', 's', 'S'] },
           { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
           { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
+          { name: 'laugh', keys: ['F', 'f'] },
         ]}
       >
         <Canvas>
@@ -30,7 +31,7 @@ function App() {
           <Physics gravity={[0, -30, 0]}>
             <Floor />
             <Suspense fallback={null}>
-              <Nunu scale={[0.005, 0.005, 0.005]} />
+              <Nunubot scale={[0.005, 0.005, 0.005]} />
             </Suspense>
             <Cube position={[1, 0.05, 0]} />
             <Cube position={[0, 0.05, 1]} />
