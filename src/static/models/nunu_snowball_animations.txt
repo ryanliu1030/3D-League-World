@@ -1,0 +1,5 @@
+nunubot_ball_spell2_in.anm
+nunusnowball_forward.anm
+nunusnowball_forward_l.anm
+nunusnowball_forward_r.anm
+orianna_ball_idle1.anm

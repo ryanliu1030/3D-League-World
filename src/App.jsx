@@ -9,6 +9,7 @@ import { Physics } from '@react-three/rapier';
 import Floor from './components/Floor';
 import Cube from './components/Cube';
 import Nunubot from './components/Nunubot';
+import NunuSnowball from './components/NunuSnowball';
 import './styles.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           { name: 'left', keys: ['ArrowLeft', 'a', 'A'] },
           { name: 'right', keys: ['ArrowRight', 'd', 'D'] },
           { name: 'laugh', keys: ['F', 'f'] },
+          { name: 'snowball', keys: ['R', 'r'] },
         ]}
       >
         <Canvas>
@@ -33,8 +35,13 @@ function App() {
             <Suspense fallback={null}>
               <Nunubot scale={[0.005, 0.005, 0.005]} />
             </Suspense>
+            <Suspense fallback={null}>
+              <NunuSnowball
+                position={[0, 0, 0.8]}
+                scale={[0.005, 0.005, 0.005]}
+              />
+            </Suspense>
             <Cube position={[1, 0.05, 0]} />
-            <Cube position={[0, 0.05, 1]} />
             <Cube position={[-1, 0.05, 0]} />
             <Cube position={[0, 0.05, -1]} />
           </Physics>
