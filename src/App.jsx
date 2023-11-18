@@ -23,7 +23,7 @@ function App() {
           { name: 'laugh', keys: ['F', 'f'] },
         ]}
       >
-        <Canvas>
+        <Canvas >
           <PerspectiveCamera position={[2, 2, 2]} makeDefault />
           <OrbitControls />
           <ambientLight />

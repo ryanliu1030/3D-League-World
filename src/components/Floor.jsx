@@ -1,15 +1,33 @@
-import { CuboidCollider, RigidBody } from '@react-three/rapier';
+import { Plane } from "@react-three/drei";
+import { folder, useControls } from "leva";
+import { LEVA_FOLDERS } from "./constants";
 
-function Floor(props) {
+export default function Floor() {
+  const { topLeftColor, topRightColor, bottomLeftColor, bottomRightColor } =
+    useControls(
+      LEVA_FOLDERS.materials.label,
+      {
+        [LEVA_FOLDERS.floor.label]: folder(
+          {
+            topLeftColor: { value: "#f5883c", label: "Top left color" },
+            topRightColor: { value: "#ff9043", label: "Top right color" },
+            bottomLeftColor: { value: "#fccf92", label: "Bottom left color" },
+            bottomRightColor: { value: "#f5aa58", label: "Bottom right color" },
+          },
+          { collapsed: true, color: LEVA_FOLDERS.floor.color }
+        ),
+      },
+      { collapsed: true, color: LEVA_FOLDERS.materials.color }
+    );
+
   return (
-    <RigidBody {...props} type="fixed" colliders={false}>
-      <mesh position={[0, 0, 0]} rotation-x={-Math.PI / 2}>
-        <planeGeometry args={[1000, 1000]} />
-        <meshStandardMaterial color="#93c5fd" />
-      </mesh>
-      <CuboidCollider args={[1000, 2, 1000]} position={[0, -2, 0]} />
-    </RigidBody>
+    <Plane args={[2, 2]} frustumCulled={false} matrixAutoUpdate={false}>
+      <floorMaterial
+        topLeftColor={topLeftColor}
+        topRightColor={topRightColor}
+        bottomRightColor={bottomRightColor}
+        bottomLeftColor={bottomLeftColor}
+      />
+    </Plane>
   );
 }
-
-export default Floor;
