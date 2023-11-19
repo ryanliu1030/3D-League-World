@@ -44,7 +44,7 @@ function Nunubot(props) {
     return () => {
       actions[animation].fadeOut(0.2);
     };
-  }, [animation, actions, laughSound]);
+  }, [animation, actions]);
 
   return (
     <group ref={group} {...props} dispose={null}>
