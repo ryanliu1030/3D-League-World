@@ -2,8 +2,8 @@ import { CuboidCollider, RigidBody } from '@react-three/rapier';
 
 function Floor(props) {
   return (
-    <RigidBody {...props} type="fixed" colliders={false}>
-      <mesh position={[0, 0, 0]} rotation-x={-Math.PI / 2}>
+    <RigidBody {...props} type="fixed" restitution={0.2} friction={1}>
+      <mesh position={[0, 0, 0]} rotation-x={-Math.PI / 2} receiveShadow>
         <planeGeometry args={[1000, 1000]} />
         <meshStandardMaterial color="#93c5fd" />
       </mesh>
